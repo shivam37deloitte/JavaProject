@@ -31,15 +31,6 @@ public class ProcessRequestServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
 		String username = request.getParameter("username");
 		String passwd = request.getParameter("passwd");
 		UserBean userbean= new UserBean();
@@ -52,5 +43,16 @@ public class ProcessRequestServlet extends HttpServlet {
 			request.getRequestDispatcher("loginDFGH678.jsp").forward(request, response);
 		}
 	}
+	
 
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+	
+		
+
+}
 }
