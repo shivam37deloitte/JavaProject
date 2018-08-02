@@ -1,15 +1,61 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 
-<beans xmlns = "http://www.springframework.org/schema/beans"
-   xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
-   xsi:schemaLocation = "http://www.springframework.org/schema/beans
-   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
-   
-   
-   <bean id="pointBean" class="com.deloitte.pojo.Point">
-  	<property name="x" value="4"/> 
-  	<property name="y" value="8"/> 
-   </bean>
-   
-   </beans>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+   http://www.springframework.org/schema/context
+   http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+	<context:annotation-config></context:annotation-config>
+	<bean id="pointBean" class="com.deloitte.pojo.Point"
+		scope="prototype">
+		<property name="x" value="7" />
+		<property name="y" value="8" />
+	</bean>
+
+	<bean id="HelloWorld" class="com.deloitte.pojo.HelloWorld">
+		<property name="message1" value="hi" />
+		<property name="message2" value="heya" />
+	</bean>
+
+	<bean id="HelloIndia" class="com.deloitte.pojo.HelloIndia"
+		parent="HelloWorld">
+		<property name="message1" value="helloIndia" />
+		<property name="message3" value="helloIndia3" />
+	</bean>
+
+	<bean id="TextEditorCDI" class="com.deloitte.pojo.TextEditor">
+		<constructor-arg ref="spellChecker"></constructor-arg>
+		<property name="name" value="Shivam" />
+	</bean>
+
+	<bean id="TextEditorCDIABC" class="com.deloitte.pojo.TextEditor"
+		autowire="constructor">
+		<property name="name" value="Shivam" />
+	</bean>
+
+	<bean id="TextEditorSDI" class="com.deloitte.pojo.TextEditor">
+		<property name="spellChecker" ref="spellChecker" />
+
+	</bean>
+
+	<bean id="TextEditorASD" class="com.deloitte.pojo.TextEditor"
+		autowire="byType">
+		<property name="name" value="Shivam" />	
+	</bean>
+	
+	<bean id="TextEditorQAZ" class="com.deloitte.pojo.TextEditor"
+		autowire="byName">
+		<property name="name" value="Shivam" />	
+	</bean>
+
+
+	<bean id="spellChecker" class="com.deloitte.pojo.SpellChecker">
+	</bean>
+
+
+
+</beans>
