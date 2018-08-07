@@ -15,7 +15,7 @@ public class MainClass {
 	public static void main(String[] args) {
 		context = new ClassPathXmlApplicationContext("Beans.xml");
 
-		Point point = (Point) context.getBean("pointBean");
+	/*	Point point = (Point) context.getBean("pointBean");
 		System.out.println(point);
 
 		Point point2 = (Point) context.getBean("pointBean");
@@ -52,7 +52,7 @@ public class MainClass {
 		TextEditor txt4 = (TextEditor) context.getBean("TextEditorQAZ");
 		txt4.spellCheck();
 		txt4.getName();
-
+*/
 	}
 
 }
